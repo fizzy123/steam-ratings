@@ -1,6 +1,26 @@
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
+body {
+        font-family: "Afacad Flux", sans-serif;
+            font-optical-sizing: auto;
+                font-weight: 400;
+                    font-style: normal;
+                        font-variation-settings:
+                              "slnt" 0;
+                                background-color: #121212;
+                                    color: #DDD;
+}
+
+table, th, td {
+    border: 1px solid #333;
+        border-collapse: collapse;
+}
+
 .tag { 
   border-radius:10%;
   display:inline-block;
@@ -9,6 +29,9 @@
   border: #cecece 1px solid;
   cursor: pointer;
 }
+            :link { color: #a9d6e5; }
+            :visited { color: #468faf; }
+            :link:active, :visited:active { color: #FF0000; }
     </style>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -74,9 +97,9 @@
               var includeIndex = tags.include.indexOf(tag)
               var excludeIndex = tags.exclude.indexOf(tag)
               if (includeIndex > -1) {
-                $(this).css("background-color", "#91ef91")
+                $(this).css("background-color", "#70ab3d")
               } else if(excludeIndex > -1 ) {
-                $(this).css("background-color", "#ffaaaa")
+                $(this).css("background-color", "#d62828")
               }
             })
           }
@@ -166,19 +189,21 @@
                 // create online co-op display
                 var tdOnlineCoop = $('<td>')
                 if (game['online_coop']) {
-                  tdOnlineCoop.css("background-color", "green")
+                  tdOnlineCoop.css("background-color", "#70ab3d")
                 } else {
-                  tdOnlineCoop.css("background-color", "red")
+                  tdOnlineCoop.css("background-color", "#d62828")
                 }
+                tdOnlineCoop.css("border-radius", "20%")
                 tr.append(tdOnlineCoop)
 
                 // create local co-op display
                 var tdLocalCoop = $('<td>')
                 if (game['local_coop']) {
-                  tdLocalCoop.css("background-color", "green")
+                  tdLocalCoop.css("background-color", "##70ab3d")
                 } else {
-                  tdLocalCoop.css("background-color", "red")
+                  tdLocalCoop.css("background-color", "#d62828")
                 }
+                tdLocalCoop.css("border-radius", "20%")
                 tr.append(tdLocalCoop)
 
                 // create tags display
@@ -300,8 +325,8 @@
           <td>Good</td>
           <td>Bad</td>
           <td>Ratio</td>
-          <td>Online Co-op</td>
-          <td>Local Co-op</td>
+          <td style="width:16px">Online Co-op</td>
+          <td style="width:44px">Local Co-op</td>
           <td>Tags</td>
         </tr>
       </thead>
